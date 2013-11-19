@@ -38,6 +38,7 @@ int main(int argc, char** argv)
 		get_vector(size,fd);
 		write(fd,"\n",1);
 	}
+	// AP: а где проверки на ошибки всех системных вызовов? write, close и т.п.? исправить!
 	write(fd,"\n",1);
 	get_vector(size,fd);
 	if (close(fd) < 0) error("cannot close file \n");
