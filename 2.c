@@ -84,6 +84,7 @@ int main(int argc, char** argv)
 	forthr *thr;
 	thr = (forthr*)malloc(sizeof(forthr)*thread_number);
 	int k = 0;
+	// AP: сделайте вывод с точостью до микросекунд
 	time2 = time(NULL) - time2;
 	printf("reading from problem file time is  %i \n", (int)time2);
 	for (; k < (thread_number - 1); k++)
@@ -103,6 +104,7 @@ int main(int argc, char** argv)
 	(thr[thread_number - 1]).mat = (matrix + size*size*(thread_number - 1)/thread_number);
 	(thr[thread_number - 1]).mat = (matrix + size*size - (size * (thr[thread_number - 1]).num_of_iter));
 	(thr[thread_number - 1]).sum_start = (size - (thr[thread_number - 1]).num_of_iter );
+	// AP: зачем отдельно запускть эту функцию?
 	for_thread(thr + thread_number - 1);
 	for (; j < (thread_number - 1); j++ ) pthread_join(thid[j], NULL);
 	free(thid);
